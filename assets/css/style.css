@@ -1,0 +1,313 @@
+:root {
+    --primary-color: #0d2c4b;       /* Deep Navy Blue */
+    --primary-color-light: #1a5692; /* Lighter Navy for hovers */
+    --secondary-color: #f0f4f8;     /* Light Gray Background */
+    --accent-color: #d4af37;        /* Gold/Mustard for accents */
+    --accent-color-hover: #c39e2f;  /* Darker Gold for hovers */
+    --text-color: #333;             /* Standard Dark Text */
+    --text-color-light: #6c757d;    /* Lighter Muted Text */
+    --border-color: #dee2e6;
+    --border-radius: 0.375rem;      /* Slightly softer corners */
+    --box-shadow: 0 0 1rem rgba(0,0,0,0.07);
+}
+
+/* --- 2. General & Body Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.content-wrapper {
+    background-color: var(--secondary-color) !important;
+}
+
+/* --- 3. Login Page Makeover --- */
+.login-page {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2c5364 100%);
+}
+.login-card-body, .card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.login-logo a {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- 4. Main Layout & Component Overrides --- */
+
+/* Sidebar */
+.main-sidebar {
+    background-color: var(--primary-color);
+}
+.main-sidebar .brand-link {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.nav-sidebar .nav-item .nav-link {
+    transition: all 0.2s ease-in-out;
+}
+.nav-sidebar .nav-item > .nav-link.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+.nav-sidebar .nav-item:hover > .nav-link {
+    background-color: var(--primary-color-light);
+}
+
+/* Navbar */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Cards & Modals */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease-in-out;
+}
+.card:hover {
+    box-shadow: 0 0 1.5rem rgba(0,0,0,0.1);
+}
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+.card-primary .card-header { /* For report cards */
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.card-danger .card-header {
+    background-color: #dc3545;
+}
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--primary-color-light);
+    border-color: var(--primary-color-light);
+}
+.btn-success {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--primary-color)
+}
+.btn-success:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+    color: var(--primary-color)
+}
+
+/* Tables */
+.table thead th {
+    background-color: var(--secondary-color);
+    font-weight: 600;
+}
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Dashboard Info Boxes */
+.info-box {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+}
+
+/* --- 5. Custom Fee Voucher Styling --- */
+.fee-voucher {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    page-break-inside: avoid;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Important for watermark */
+}
+.fee-voucher .header {
+    border-bottom: 2px solid var(--primary-color);
+}
+.fee-voucher .total-section {
+    border-top: 2px solid var(--primary-color);
+}
+.fee-voucher .watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 3.5em; /* Adjust size */
+    color: var(--secondary-color);
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+    opacity: 1;
+}
+.fee-voucher > * {
+    position: relative;
+    z-index: 2; /* Bring content above watermark */
+}
+.status-stamp.paid {
+    color: #28a745;
+    border-color: #28a745;
+}
+.status-stamp.unpaid {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+
+/* --- 6. Print Styling (Unchanged) --- */
+@media print {
+    body { -webkit-print-color-adjust: exact; }
+    .main-sidebar, .main-header, .content-header, .main-footer, .no-print {
+        display: none !important;
+    }
+    .content-wrapper { margin-left: 0 !important; padding: 0 !important; }
+    .content { padding: 0 !important; }
+    .fee-voucher {
+        width: 48%;
+        height: 45vh;
+        margin: 1%;
+        float: left;
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+    }
+}
+
+/* In assets/css/style.css */
+
+/* --- 7. Selectable Print Page Styles --- */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    #printable-area {
+        display: block !important;
+    }
+    #printable-area .fee-voucher {
+        width: 48%;
+        height: 48vh; /* Adjust for 4 per page on A4 */
+        margin: 1%;
+        float: left;
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        font-size: 0.8rem; /* Smaller font for printing */
+    }
+    #printable-area .fee-voucher .header .logo h5 {
+        font-size: 1.1em;
+    }
+    #printable-area .fee-voucher .qr-code img {
+        width: 55px;
+        height: 55px;
+    }
+    #printable-area .fee-voucher .watermark {
+        font-size: 3em;
+    }
+    /* Add a page break after every 4 vouchers */
+    #printable-area .fee-voucher:nth-child(4n) {
+        page-break-after: always;
+    }
+}
+.total-section .breakdown {
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #6c757d;
+}
+.total-section .breakdown-value {
+    text-align: right;
+    display: inline-block;
+    min-width: 80px;
+}
+.total-section .final-payable {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+/* --- 8. Thermal Receipt Print Styles --- */
+/* This is a special print mode, triggered by adding a class to the body */
+
+@media print {
+    body.receipt-print-mode .main-sidebar,
+    body.receipt-print-mode .main-header,
+    body.receipt-print-mode .content-header,
+    body.receipt-print-mode .main-footer,
+    body.receipt-print-mode .no-print,
+    body.receipt-print-mode .card,
+    body.receipt-print-mode .modal {
+        display: none !important; /* Hide everything */
+    }
+
+    body.receipt-print-mode #receipt-print-area {
+        display: block !important; /* Only show the receipt */
+    }
+}
+
+.thermal-receipt {
+    width: 72mm; /* Standard thermal printer width */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    color: #000;
+    padding: 5mm;
+    box-sizing: border-box;
+}
+.thermal-receipt h5 {
+    font-size: 12pt;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
+.thermal-receipt p {
+    margin: 2px 0;
+    font-size: 9pt;
+}
+.thermal-receipt .header, .thermal-receipt .totals {
+    text-align: center;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.thermal-receipt .items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.thermal-receipt .items-table th {
+    text-align: left;
+    border-bottom: 1px solid #000;
+}
+.thermal-receipt .items-table td {
+    padding: 2px 0;
+}
+.thermal-receipt .items-table .amount {
+    text-align: right;
+}
+.thermal-receipt .qr-code-container {
+    text-align: center;
+    margin-top: 10px;
+}
+.thermal-receipt .qr-code-container img {
+    width: 40mm;
+    height: 40mm;
+}
+
