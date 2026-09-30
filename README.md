@@ -123,4 +123,4 @@ Full step-by-step installation notes are in `INSTALLATION_PARENT_SYSTEM.md`.
 
 ## 📄 License
 
-This project was developed as commercial/client work. Add a license here if you intend to open-source it, or remove this section if the code stays proprietary.
+open source
